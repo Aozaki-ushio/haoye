@@ -1,0 +1,40 @@
+# springboot相关配置
+spring:
+  profiles:
+    # 要激活的配置文件，当前可选配置有dev（开发环境），test（测试环境），prod（生成环境），默认为开发环境
+    # 测试环境和生成环境部署时会自动激活为test， prod
+    active: dev
+
+
+#  # 启用UTF-8编码
+#  http:
+#    encoding:
+#      charset: UTF-8
+#      enabled: true
+#      force: true
+#
+  # jpa相关配置
+  jpa:
+    hibernate:
+      # 启动时自动根据实体类创建table，如存在则作更新处理
+      ddl-auto: update
+      # 采用Hibernate命名策略
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+
+server:
+  # 应用web服务端口，系统自动分配，建议不要做变更
+  port: 8082
+  servlet :
+    context-path: /haoye
+  tomcat:
+    uri-encoding: UTF-8
+
+dataPath:
+# 自定义配置属性，如需扩展可直接在 app 下面进行定义
+app:
+  # 应用创建时指定的英文名称，建议不要做变更
+  en-name: mdos
+  # 应用创建时指定的中文名称
+  zh-name: 天镜mdos
+
+

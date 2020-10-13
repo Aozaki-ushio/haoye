@@ -1,0 +1,18 @@
+# 开发环境配置信息，应用创建成功后由平台自动配置，无需做变更
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # mysql jdbc驱动配置
+    #url: jdbc:mysql://10.20.69.54:3307/mdos?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    #url: jdbc:mysql://10.1.65.187:3307/mdos?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://47.103.193.99:3306/HaoyeFirst?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2b8
+    # mysql访问用户名
+    #username: mdos
+    username: root
+    # mysql访问密码
+    #password: bs50_adw4MbQk3!
+    password: Haoye666
+  resources:
+    # 前端静态资源加载路径
+    static-locations: file:${user.dir}/src/main/frontend/build/
+

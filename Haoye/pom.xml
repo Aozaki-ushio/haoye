@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.Haoye</groupId>
+    <artifactId>haoye</artifactId>
+    <version>0.0.3</version>
+    <name>demo</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.20</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.11</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baidu.disconf</groupId>
+            <artifactId>disconf-client</artifactId>
+            <version>2.6.33</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.cmeza</groupId>
+                <artifactId>spring-data-generator</artifactId>
+                <version>1.1.8</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>repositories</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <entity-package>
+                        <param>dmzsmos.entity</param>
+                    </entity-package>
+                    <repository-package>dmzsmos.repository</repository-package>
+                    <repository-postfix>Repository</repository-postfix>
+                    <only-annotations>false</only-annotations>
+                    <overwrite>true</overwrite>
+                </configuration>
+            </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>io.swagger</groupId>-->
+            <!--                <artifactId>swagger-codegen-maven-plugin</artifactId>-->
+            <!--                <version>2.2.1</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>spring</id>-->
+            <!--                        <phase>generate-sources</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>generate</goal>-->
+            <!--                        </goals>-->
+            <!--                        <configuration>-->
+            <!--							<inputSpec>${basedir}/src/main/dmzsmos.api/dmzsmos.api.yaml</inputSpec>-->
+            <!--                            <language>spring</language>-->
+            <!--                            <modelPackage>dmzsmos.vo</modelPackage>-->
+            <!--                            <apiPackage>dmzsmos.api</apiPackage>-->
+            <!--                            <output>target/generated-sources</output>-->
+            <!--                            <templateDirectory>build/swagger/spring</templateDirectory>-->
+            <!--                        </configuration>-->
+            <!--                    </execution>-->
+            <!--                    <execution>-->
+            <!--                        <id>html</id>-->
+            <!--                        <phase>generate-sources</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>generate</goal>-->
+            <!--                        </goals>-->
+            <!--                        <configuration>-->
+            <!--							<inputSpec>${basedir}/src/main/dmzsmos.api/dmzsmos.api.yaml</inputSpec>-->
+            <!--                            <language>html2</language>-->
+            <!--                            <output>target/document</output>-->
+            <!--							<templateDirectory>build/swagger/html</templateDirectory>-->
+            <!--                        </configuration>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
+            <!--			<plugin>-->
+            <!--				<groupId>org.apache.maven.plugins</groupId>-->
+            <!--				<artifactId>maven-antrun-plugin</artifactId>-->
+            <!--				<version>1.8</version>-->
+            <!--				<executions>-->
+            <!--					<execution>-->
+            <!--						<phase>process-sources</phase>-->
+            <!--						<goals>-->
+            <!--							<goal>run</goal>-->
+            <!--						</goals>-->
+            <!--					</execution>-->
+            <!--				</executions>-->
+            <!--				<configuration>-->
+            <!--					<target>-->
+            <!--						<delete includeEmptyDirs="true">-->
+            <!--							<fileset dir="target/generated-sources/src/main/java/io" />-->
+            <!--							<fileset dir="target/generated-sources/src/main/java" includes="**/*Controller.java"/>-->
+            <!--						</delete>-->
+            <!--						<copydir src="target/generated-sources/src/main/java" dest="src/main/java" />-->
+            <!--						<copy file="target/document/index.html" tofile="target/dmzsmos-dmzsmos.api.html" />-->
+            <!--						<delete includeEmptyDirs="true">-->
+            <!--							<fileset dir="target/generated-sources" />-->
+            <!--						</delete>-->
+            <!--					</target>-->
+            <!--				</configuration>-->
+            <!--			</plugin>-->
+            <!--			<plugin>-->
+            <!--				<groupId>com.github.eirslett</groupId>-->
+            <!--				<artifactId>frontend-maven-plugin</artifactId>-->
+            <!--				<version>1.6</version>-->
+            <!--				<configuration>-->
+            <!--					<installDirectory>target</installDirectory>-->
+            <!--					<workingDirectory>${basedir}/src/main/frontend</workingDirectory>-->
+            <!--				</configuration>-->
+            <!--				<executions>-->
+            <!--					<execution>-->
+            <!--						<id>install node and npm</id>-->
+            <!--						<phase>generate-resources</phase>-->
+            <!--						<goals>-->
+            <!--							<goal>install-node-and-npm</goal>-->
+            <!--						</goals>-->
+            <!--						<configuration>-->
+            <!--							<nodeVersion>v10.11.0</nodeVersion>-->
+            <!--							<npmVersion>6.4.1</npmVersion>-->
+            <!--						</configuration>-->
+            <!--					</execution>-->
+            <!--					<execution>-->
+            <!--						<id>npm run build</id>-->
+            <!--						<phase>prepare-package</phase>-->
+            <!--						<goals>-->
+            <!--							<goal>npm</goal>-->
+            <!--						</goals>-->
+            <!--						<configuration>-->
+            <!--							<arguments>run build</arguments>-->
+            <!--						</configuration>-->
+            <!--					</execution>-->
+            <!--				</executions>-->
+            <!--			</plugin>-->
+            <!--			<plugin>-->
+            <!--				<groupId>org.apache.maven.plugins</groupId>-->
+            <!--				<artifactId>maven-assembly-plugin</artifactId>-->
+            <!--				<version>2.6</version>-->
+            <!--				<executions>-->
+            <!--					<execution>-->
+            <!--						<id>build-bin</id>-->
+            <!--						<phase>package</phase>-->
+            <!--						<goals>-->
+            <!--							<goal>single</goal>-->
+            <!--						</goals>-->
+            <!--						<configuration>-->
+            <!--							<finalName>dmzsmos</finalName>-->
+            <!--							<appendAssemblyId>false</appendAssemblyId>-->
+            <!--							<descriptors>-->
+            <!--								<descriptor>build/assembly.xml</descriptor>-->
+            <!--							</descriptors>-->
+            <!--						</configuration>-->
+            <!--					</execution>-->
+            <!--				</executions>-->
+            <!--			</plugin>-->
+        </plugins>
+    </build>
+</project>
