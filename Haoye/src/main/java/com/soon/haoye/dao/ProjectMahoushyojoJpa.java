@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ProjectMahoushyojoJpa extends JpaRepository<ProjectMahoushyojyoEntity,String> {
-    @Query(value ="select * from project_mahoushyojyo where list3x like :code or list4x like :code" , nativeQuery = true)
+    @Query(value ="select * from projectmahoushyojyo where list_of_4X like :code or list_of_memory_crystalls like :code" , nativeQuery = true)
     List<ProjectMahoushyojyoEntity> FindNumberByCode(@Param("code")String code);
 }

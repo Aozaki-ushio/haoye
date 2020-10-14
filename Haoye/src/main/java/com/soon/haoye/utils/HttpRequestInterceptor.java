@@ -57,7 +57,7 @@ public class HttpRequestInterceptor implements HandlerInterceptor {
     }
 
     private String checkToken(HttpServletRequest request, String token) {
-        String url = String.join("", ConfigParam.getInstance().getBaseUrl(), "tenant/serviceapi/mdos.api/v1/user/verify?token=", token);
+        String url = String.join("", dmzsmos.utils.ConfigParam.getInstance().getBaseUrl(), "tenant/serviceapi/mdos.api/v1/user/verify?token=", token);
         String rsp = restTemplate.getForObject(url, String.class);
         JsonObject json = new Gson().fromJson(rsp, JsonObject.class);
 
@@ -68,10 +68,10 @@ public class HttpRequestInterceptor implements HandlerInterceptor {
             String realname = jsonObject.get("realname").getAsString();
             String apikey = jsonObject.getAsJsonArray("apiKeys").get(0).getAsString();
 
-            RequestParamsHolder.setParameter("tenantId", tenantId);
-            RequestParamsHolder.setParameter("userId", userId);
-            RequestParamsHolder.setParameter("realname", realname);
-            RequestParamsHolder.setParameter("apikey", apikey);
+            dmzsmos.utils.RequestParamsHolder.setParameter("tenantId", tenantId);
+            dmzsmos.utils.RequestParamsHolder.setParameter("userId", userId);
+            dmzsmos.utils.RequestParamsHolder.setParameter("realname", realname);
+            dmzsmos.utils.RequestParamsHolder.setParameter("apikey", apikey);
 
             return userId;
         }

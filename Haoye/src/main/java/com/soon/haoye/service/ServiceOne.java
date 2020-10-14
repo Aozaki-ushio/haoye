@@ -33,23 +33,24 @@ public class ServiceOne {
             for(ProjectMahoushyojyoEntity pje: listOfPje ){
                 if (mapOfPjm.get(pje.getUid())==null){
                     ProjectMahoushyojyomodel pjm = new ProjectMahoushyojyomodel();
-                    pjm.setNumberofsame(1);
-                    pjm.setList3X(pje.getList3X());
-                    pjm.setList4X(pje.getList4X());
-                    pjm.setNumber(pje.getNumber());
+                    pjm.setNumberOfsame(1);
                     pjm.setUid(pje.getUid());
+                    pjm.setNumber(pje.getNumber());
+                    pjm.setListOf4X(pje.getListOf4X());
+                    pjm.setListOfMemoryCrystalls(pje.getListOfMemoryCrystalls());
+                    pjm.setIsSelled(pje.getIsSelled());
                     mapOfPjm.put(pjm.getUid(),pjm);
                 }
                 else {
                     ProjectMahoushyojyomodel pjm = mapOfPjm.get(pje.getUid());
-                    pjm.setNumberofsame(pjm.getNumberofsame()+1);
+                    pjm.setNumberOfsame(pjm.getNumberOfsame()+1);
                 }
             }
         }
         List<ProjectMahoushyojyomodel> listOfpjm = new ArrayList<>();
         for (String t : mapOfPjm.keySet()){
             ProjectMahoushyojyomodel pjm = mapOfPjm.get(t);
-            if (pjm.getNumberofsame()==list.size()){
+            if (pjm.getNumberOfsame()==list.size()){
                 listOfpjm.add(pjm);
             }
         }

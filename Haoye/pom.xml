@@ -13,7 +13,7 @@
 
     <groupId>com.Haoye</groupId>
     <artifactId>haoye</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
@@ -48,6 +48,10 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
             <groupId>com.baidu.disconf</groupId>
