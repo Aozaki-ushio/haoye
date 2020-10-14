@@ -3,7 +3,7 @@ package com.soon.haoye.entity;
 
 import lombok.Data;
 
-import javax.naming.Name;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -14,11 +14,16 @@ public class ProjectMahoushyojyoEntity {
 
     @Id
     @Column(name = "uid")
-    private String uid;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer uid;
     @Column(name = "user")
     private String user;
     @Column(name = "password")
     private String password;
+    @Column(name = "bind_mailbox")
+    private String bind_mailbox;
+    @Column(name = "mail_password")
+    private String mail_password;
     @Column(name = "is_selled")
     private Integer isSelled;
     @Column(name = "number")

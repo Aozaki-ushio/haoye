@@ -1,7 +1,5 @@
 package com.soon.haoye.model;
 
-
-import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -11,9 +9,11 @@ import java.sql.Date;
 @JsonIgnoreProperties({"uid","user","password","price","createTime","selledTime","numberOfsame"})
 public class ProjectMahoushyojyomodel {
 
-    private String uid;
+    private int uid;
     private String user;
     private String password;
+    private String bind_mailbox;
+    private String mail_password;
     private Integer isSelled;
     private String number;
     private String price;
@@ -22,4 +22,5 @@ public class ProjectMahoushyojyomodel {
     private Date createTime;
     private Date selledTime;
     private int numberOfsame;//计数器
+
 }

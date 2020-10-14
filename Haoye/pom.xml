@@ -13,7 +13,7 @@
 
     <groupId>com.Haoye</groupId>
     <artifactId>haoye</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
@@ -67,6 +67,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.4.0</version>
         </dependency>
 
     </dependencies>

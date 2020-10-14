@@ -16,3 +16,5 @@ spring:
     # 前端静态资源加载路径
     static-locations: file:${user.dir}/src/main/frontend/build/
 
+work:
+  dir: /ProjectHaoYe
