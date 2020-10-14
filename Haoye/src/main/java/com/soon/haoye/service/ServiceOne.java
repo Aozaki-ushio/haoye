@@ -57,8 +57,10 @@ public class ServiceOne {
         return listOfpjm;
     }
 
-    public Object addAccountNumber(List<ProjectMahoushyojyoEntity> listOfPre) {
-       return pjmJpa.saveAll(listOfPre);
+    public Object addAccountNumber(ProjectMahoushyojyoEntity pje) {
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        pje.setNumber(uuid);//生成选号码
+       return pjmJpa.save(pje);
     }
 
     public void deleteAccountNumberByUid(String uid) {

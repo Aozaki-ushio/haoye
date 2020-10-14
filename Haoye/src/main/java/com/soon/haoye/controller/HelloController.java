@@ -30,10 +30,10 @@ public class HelloController {
     }
 
     @RequestMapping(value = "/addAccountNumber",produces = { "application/json" },method = RequestMethod.POST)
-    public ResponseEntity<Map> addAccountNumber(HttpServletRequest request, @RequestBody Map<String,List<ProjectMahoushyojyoEntity>> body){
-        List<ProjectMahoushyojyoEntity> list = body.get("X");
+    public ResponseEntity<Map> addAccountNumber(HttpServletRequest request, @RequestBody Map<String,ProjectMahoushyojyoEntity> body){
+        ProjectMahoushyojyoEntity pje = body.get("X");
         Map data=new HashMap();
-        data.put("list",serone.addAccountNumber(list));
+        data.put("list",serone.addAccountNumber(pje));
         return new ResponseEntity(data, HttpStatus.OK);
     }
 
